@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+      "experimentalDecorators": true,
+      "baseUrl": ".",
+      "module": "es6",
+      "paths": {
+          "*": ["src/*"],
+          "src/*": ["src/*"],
+          "hoc/*": ["src/client/hoc/*"],
+          "theme/*": ["src/client/theme/*"],
+          "parts/*": ["src/client/components/parts"],
+          "material-ui/*": ["@material-ui/core/*"],
+          "material-ui-icons/*": ["@material-ui/icons/*"],
+          "server/*": ["src/server/*"],
+          "repository/*": ["src/server/repository/*"],
+          "serverlib/*": ["src/server/lib/*"],
+          "model/*": ["src/server/*"],
+          "config/*": ["src/server/config/*"]
+      }
+  },
+  "exclude": [
+      "node_modules",
+      "lib"
+  ]
+}
