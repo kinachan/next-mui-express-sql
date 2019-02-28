@@ -3,17 +3,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'material-ui/Button';
-import Dialog from 'material-ui/Dialog';
-import DialogTitle from 'material-ui/DialogTitle';
-import DialogContent from 'material-ui/DialogContent';
-import DialogContentText from 'material-ui/DialogContentText';
-import DialogActions from 'material-ui/DialogActions';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 import TextField from 'parts/TextField';
-import Link from 'next/link';
 import LinkButton from 'parts/LinkButton';
 import Grid from 'material-ui/Grid';
+import GenericDialog from 'views/common/dialog/GenericDialog';
 import injectLayout from 'hoc/withLayout';
 
 const styles = theme => ({
@@ -41,23 +36,19 @@ class Index extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { open } = this.state;
+    const okButton = <Button color="primary" onClick={this.handleClose}>OK</Button>;
 
     const dialogPart = (
-      <Dialog open={open} onClose={this.handleClose}>
-        <DialogTitle>Super Secret Password</DialogTitle>
-        <DialogContent>
-          <DialogContentText>1-2-3-4-5</DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button color="primary" onClick={this.handleClose}>
-            OK
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <GenericDialog
+        open={this.state.open}
+        handleClose={this.handleClose}
+        title="Dialog Common Component"
+        content="もりさきくんは ふっとばされた！"
+        OkButton={okButton}
+      />
     );
 
-    const linkPart = (
+    const linkButtonPart = (
       <Grid item xs={12}>
         <LinkButton
           color="primary"
@@ -81,7 +72,7 @@ class Index extends React.Component {
               example project
           </Typography>
           </Grid>
-          {linkPart}
+          {linkButtonPart}
           <Grid item xs={12}>
             <TextField
               label="hello"

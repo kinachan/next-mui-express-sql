@@ -35,10 +35,10 @@ app.prepare()
       return handle(req, res)
     })
 
-    server.listen(3000, (err) => {
+    server.listen(24424, (err) => {
       if (err) throw err;
       console.log('リアルポンキッキ、はーじまーるよー！');
-      console.log('> Ready on http://localhost:3000')
+      console.log('> Ready on http://localhost:24424')
     })
   })
   .catch((ex) => {

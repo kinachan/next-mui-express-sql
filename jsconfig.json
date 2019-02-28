@@ -11,6 +11,7 @@
           "parts/*": ["src/client/components/parts"],
           "material-ui/*": ["@material-ui/core/*"],
           "material-ui-icons/*": ["@material-ui/icons/*"],
+          "views/*": ["src/client/components/views/*"],
           "server/*": ["src/server/*"],
           "repository/*": ["src/server/repository/*"],
           "serverlib/*": ["src/server/lib/*"],

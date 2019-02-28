@@ -11,7 +11,7 @@ module.exports = {
       alias: {
         src: "./src",
         hoc: "./src/client/hoc",
-        views: "./views",
+        views: "./src/client/components/views",
         theme: "./src/client/theme",
         parts: "./src/client/components/parts",
         "material-ui": "@material-ui/core",

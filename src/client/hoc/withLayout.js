@@ -110,7 +110,7 @@ export default function injectLayout(Content) {
     };
 
     render() {
-      const { classes } = this.props;
+      const { classes, ...rest } = this.props;
 
       return (
         <div className={classes.root}>
@@ -167,7 +167,7 @@ export default function injectLayout(Content) {
           <main className={classes.content}>
             <div className={classes.appBarSpacer} />
             <Grid container spacing={24}>
-              <Content {...this.props} />              
+              <Content {...rest} />              
             </Grid>
           </main>
         </div>

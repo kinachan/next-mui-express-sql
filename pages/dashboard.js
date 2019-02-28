@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
         </Grid>
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <img className={classes.image} src="../static/images/kina_space3.png"></img>
+              <img className={classes.image} src="../static/images/s_kina_space3.png"></img>
             </Paper>
           </Grid>
       </Grid>
