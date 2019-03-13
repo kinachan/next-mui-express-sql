@@ -76,6 +76,9 @@ class Index extends React.Component {
           <Grid item xs={12}>
             <TextField
               label="hello"
+              variant="outlined"
+              errorText="数字を入力してください"
+              rule="numeric"
             />
           </Grid>
           <Grid item xs={12}>
@@ -93,4 +96,4 @@ Index.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default injectLayout(withStyles(styles)(Index));
+export default injectLayout(withStyles(styles)(Index), "最初のページ", true);

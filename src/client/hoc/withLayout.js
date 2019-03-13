@@ -95,11 +95,16 @@ const styles = theme => ({
   },
 });
 
-export default function injectLayout(Content) {
+export default function injectLayout(Content, title, invisibleBadge = true) {
   class WithLayout extends React.Component {
     state = {
       open: true,
+      invisibleBadge: true,
     };
+
+    async componentDidMount() {
+      this.setState({invisibleBadge});
+    }
 
     handleDrawerOpen = () => {
       this.setState({ open: true });
@@ -138,10 +143,10 @@ export default function injectLayout(Content) {
                 noWrap
                 className={classes.title}
               >
-                Dashboard
+                {title}
               </Typography>
               <IconButton color="inherit">
-                <Badge badgeContent={4} color="secondary">
+                <Badge variant="dot" color="secondary" invisible={this.state.invisibleBadge}>
                   <Notifications />
                 </Badge>
               </IconButton>

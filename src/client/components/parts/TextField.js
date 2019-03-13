@@ -6,6 +6,10 @@ import FormHelperText from 'material-ui/FormHelperText';
 import Validator from 'validatorjs';
 
 const styles = theme => ({
+  outerDiv: {
+    padding: '8px',
+    display: 'inline-block',
+  },
   formLabelRoot: {
     // textOverflow: 'ellipsis',
     // overflow: 'hidden',
@@ -25,10 +29,6 @@ const styles = theme => ({
   },
 });
 
-const defaultOuterDiv = {
-  padding: '8px',
-}
-
 class TextFields extends React.Component {
   state = {
     error: false,
@@ -46,17 +46,16 @@ class TextFields extends React.Component {
       if (error) return;
     }
     if (onChange) onChange(ev, name);
-  } 
+  }
 
   render() {
-    const { classes, outerStyle, maxLength, errorText, rule, ...rest } = this.props;
-    const outDiv = {...defaultOuterDiv, ...outerStyle};
+    const { classes, outerStyle, maxLength, errorText, rule, variant, ...rest } = this.props;
 
     const helperText = this.state.error ? (
       <FormHelperText error >{errorText}</FormHelperText>
     ) : null;
     return (
-      <div style={outDiv}>
+      <div className={classes.outerDiv} style={outerStyle}>
         <MUITextField
           className={classes.textField}
           InputProps={{
@@ -69,6 +68,7 @@ class TextFields extends React.Component {
             root: classes.formLabelRoot,
           },
         }}
+        variant={variant}
         {...rest}
         />
         {helperText}
@@ -79,6 +79,11 @@ class TextFields extends React.Component {
 
 TextFields.propTypes = {
   classes: PropTypes.object.isRequired,
+  variant: PropTypes.string,
 };
+
+TextFields.defaultProps = {
+  variant: 'standard'
+}
 
 export default withStyles(styles)(TextFields);

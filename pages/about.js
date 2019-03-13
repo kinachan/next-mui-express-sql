@@ -6,11 +6,15 @@ import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 import Link from 'next/link';
+import injectLayout from 'hoc/withLayout';
 
 const styles = theme => ({
   root: {
     textAlign: 'center',
     paddingTop: theme.spacing.unit * 20,
+    width: '400px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
 });
 
@@ -41,4 +45,4 @@ About.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(About);
+export default injectLayout(withStyles(styles)(About), 'About Page');
