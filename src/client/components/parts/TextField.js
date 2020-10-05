@@ -29,7 +29,7 @@ const styles = theme => ({
   },
 });
 
-class TextFields extends React.Component {
+class TextField extends React.Component {
   state = {
     error: false,
   }
@@ -49,7 +49,7 @@ class TextFields extends React.Component {
   }
 
   render() {
-    const { classes, outerStyle, maxLength, errorText, rule, variant, ...rest } = this.props;
+    const { classes, outerStyle, maxLength, value, errorText, rule, variant, ...rest } = this.props;
 
     const helperText = this.state.error ? (
       <FormHelperText error >{errorText}</FormHelperText>
@@ -62,6 +62,7 @@ class TextFields extends React.Component {
             classes: {input: classes.input},
             maxLength: maxLength,
             onChange: this.handleChange,
+            value: value,
         }}
         InputLabelProps={{
           FormLabelClasses: {
@@ -77,13 +78,13 @@ class TextFields extends React.Component {
   }
 }
 
-TextFields.propTypes = {
+TextField.propTypes = {
   classes: PropTypes.object.isRequired,
   variant: PropTypes.string,
 };
 
-TextFields.defaultProps = {
+TextField.defaultProps = {
   variant: 'standard'
 }
 
-export default withStyles(styles)(TextFields);
+export default withStyles(styles)(TextField);
